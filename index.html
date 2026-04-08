@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CNPI Hub - Cotações em tempo real da B3. Acompanhe PETR4, VALE3 e outros ativos.">
+  <title>CNPI Hub — Cotações em Tempo Real</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="nav-content">
+        <div class="logo">
+          <span class="logo-icon">◆</span>
+          <span class="logo-text">CNPI Hub</span>
+        </div>
+        <div class="nav-status" id="connection-status">
+          <span class="status-dot"></span>
+          <span>Conectado à B3</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Cotações em <span class="highlight">Tempo Real</span></h1>
+        <p class="hero-subtitle">Acompanhe PETR4, VALE3 e os principais ativos da B3 com dados diretamente da bolsa</p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-label">Última atualização</span>
+            <span class="stat-value" id="last-update">--:--:--</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-label">Status</span>
+            <span class="stat-value live-badge">● AO VIVO</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-decoration"></div>
+    </section>
+
+    <!-- Quotes Section -->
+    <section class="quotes-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Principais Ativos</h2>
+          <button class="btn-refresh" id="refresh-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/>
+            </svg>
+            Atualizar
+          </button>
+        </div>
+
+        <div class="quotes-grid" id="quotes-grid">
+          <!-- Cards serão inseridos via JavaScript -->
+          <div class="card-skeleton">
+            <div class="skeleton-line"></div>
+            <div class="skeleton-line short"></div>
+          </div>
+          <div class="card-skeleton">
+            <div class="skeleton-line"></div>
+            <div class="skeleton-line short"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Macro Section -->
+    <section class="macro-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Indicadores Macroeconômicos</h2>
+        </div>
+        <div class="macro-grid" id="macro-grid">
+          <div class="card-skeleton">
+            <div class="skeleton-line"></div>
+            <div class="skeleton-line short"></div>
+          </div>
+          <div class="card-skeleton">
+            <div class="skeleton-line"></div>
+            <div class="skeleton-line short"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+      <div class="container">
+        <div class="search-box">
+          <input type="text" id="ticker-input" placeholder="Digite um ticker (ex: PETR4, VALE3, HGLG11)" class="search-input">
+          <button class="search-btn" id="search-btn">Buscar</button>
+        </div>
+        <div id="search-result" class="search-result"></div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>Dados fornecidos por <a href="https://brapi.dev" target="_blank">Brapi.dev</a> — API gratuita da B3</p>
+        <p class="copyright">© 2026 CNPI Hub — Flávio Pascoal</p>
+      </div>
+    </footer>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
